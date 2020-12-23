@@ -1,2 +1,3 @@
 # Vim-Dotfile
-I like dot files, okay
+
+just `git clone https://github.com/t-a-y-l-o-r/Vim-Dotfile ~/.vim`
