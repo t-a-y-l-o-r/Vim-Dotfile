@@ -1,0 +1,16 @@
+{
+    "diagnostic.level": "information",
+    "python.analysis.useLibraryCodeForTypes": false,
+    "languageserver": {
+      "racket": {
+        "command": "racket",
+        "args": [
+          "--lib",
+          "racket-langserver"
+        ],
+        "filetypes": [
+          "scheme"
+        ]
+      }
+    }
+}

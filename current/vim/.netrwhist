@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/taylorcochran'
+let g:netrw_dirhist_7='/Users/taylorcochran/Downloads'
+let g:netrw_dirhist_6='/Users/taylorcochran/Repos/lisp/structures/one'
+let g:netrw_dirhist_5='/Users/taylorcochran/Repos/lisp/structures'
+let g:netrw_dirhist_4='/Users/taylorcochran/Repos/lisp/structures/three'
+let g:netrw_dirhist_3='/Users/taylorcochran/Repos/lisp/structures'
+let g:netrw_dirhist_2='/Users/taylorcochran/Repos/jobboard'
+let g:netrw_dirhist_1='/Users/taylorcochran/Repos/make_it_make_sense'
+let g:netrw_dirhist_0='/Users/taylorcochran/Repos/make_it_make_sense/node_modules'
+let g:netrw_dirhist_9='/Users/taylorcochran/Repos/make_it_make_sense'

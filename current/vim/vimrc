@@ -1,0 +1,118 @@
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+
+" color
+Plug 'morhetz/gruvbox'
+" autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" whatever the fuck fzf is
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" better JSX highlighting
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+" or Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" racket coloring
+Plug 'wlangstroth/vim-racket'
+
+" better python highlighting
+Plug 'vim-python/python-syntax'
+
+call plug#end()
+
+" enable ALL highlighting
+let g:python_highlight_all = 1
+
+" prevents redraw issue:
+" 'redrawtime' exceeded, syntax highlighting disabled
+set re=0
+colorscheme gruvbox
+set background=dark
+
+let g:VimTodoListsDatesEnabled = 1
+
+" only enable if using pathogen#infect
+" proper colors
+if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+
+" set transparent background
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+
+" Basics
+syntax on
+set number relativenumber
+filetype plugin indent on
+set hidden
+set noswapfile
+
+set nowrap
+set scrolloff=10
+
+" better searching
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" ENV Variables
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+
+" Autocomplete
+set path=.,**
+set wildmode=longest,list,full
+
+" Vim split is weird
+set splitbelow splitright
+
+" leader mappings
+nnoremap <SPACE> <Nop>
+:let mapleader = " "
+:map <Leader>q @q
+
+" remap split switching
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" remap moving current file to new tab
+map <Leader> <C-W>s<C-w>T
+
+
+"auto delete trailing white space
+autocmd BufWritePre * %s/\s\+$//e
+
+"definition jumping
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nnoremap <C-p> :GFiles<CR>
+
+" ensure backspacke works on macos
+set backspace=indent,eol,start
+
+
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<Tab>" :
+        \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
