@@ -1,0 +1,20 @@
+{
+  "languageserver": {
+    "racket": {
+      "command": "racket",
+      "args": [
+        "--lib",
+        "racket-langserver"
+      ],
+      "filetypes": [
+        "scheme"
+      ]
+    },
+    "perl": {
+      "initializationOptions": {
+        "disableVSCodeFolder": true
+      }
+    }
+  }
+}
+
